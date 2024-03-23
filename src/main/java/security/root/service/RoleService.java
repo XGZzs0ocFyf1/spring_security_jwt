@@ -1,9 +1,9 @@
-package service;
+package security.root.service;
 
-import entities.Role;
+import security.root.entities.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import repositories.RoleRepository;
+import security.root.repositories.RoleRepository;
 
 import java.util.Optional;
 

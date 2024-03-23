@@ -1,6 +1,6 @@
-package service;
+package security.root.service;
 
-import entities.User;
+import security.root.entities.User;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -8,8 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import repositories.RoleRepository;
-import repositories.UserRepository;
+import security.root.repositories.UserRepository;
 
 import javax.management.relation.RoleNotFoundException;
 import java.util.List;
@@ -29,7 +28,8 @@ public class UserService implements UserDetailsService {
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = findByUserName(username).orElseThrow(() -> new UsernameNotFoundException(
+        User user = findByUserName(username)
+                .orElseThrow(() -> new UsernameNotFoundException(
                 String.format("Пользователь '%s' не найден", username)
         ));
         return new org.springframework.security.core.userdetails.User(

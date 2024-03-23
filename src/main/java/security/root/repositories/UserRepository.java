@@ -1,6 +1,6 @@
-package repositories;
+package security.root.repositories;
 
-import entities.User;
+import security.root.entities.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

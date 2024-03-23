@@ -1,4 +1,4 @@
-package controllers;
+package security.root.controllers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +15,7 @@ public class MainController {
         return "Secured data";
     }
 
-    @GetMapping("/unsecured")
+        @GetMapping("/unsecured")
     public String unsecuredData() {
         return "Unecured data";
     }
@@ -28,5 +28,10 @@ public class MainController {
     @GetMapping("/info")
     public String userData(Principal principal) {
         return principal.getName();
+    }
+
+    @GetMapping("/hello")
+    public String index() {
+        return "Hello World!";
     }
 }
